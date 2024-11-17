@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+void rotate_right(vector<int>& vec, int k) {
+    int n = vec.size();
+    k = k % n; // Normalize k to avoid unnecessary rotations
+
+    // Reverse the entire vector
+    reverse(vec.begin(), vec.end());
+
+    // Reverse the first k elements
+    reverse(vec.begin(), vec.begin() + k);
+
+    // Reverse the remaining n-k elements
+    reverse(vec.begin() + k, vec.end());
+}
+
+int main() {
+    vector<int> vec1 = {1, 2, 3, 4, 5};
+    int k1 = 2;
+    rotate_right(vec1, k1);
+    cout << "Rotated vector 1: ";
+    for (int num : vec1) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    vector<int> vec2 = {10, 20, 30, 40};
+    int k2 = 1;
+    rotate_right(vec2, k2);
+    cout << "Rotated vector 2: ";
+    for (int num : vec2) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
