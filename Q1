@@ -1,0 +1,11 @@
+#include <vector>
+#include <algorithm>
+
+int findFirstOccurrence(const std::vector<int>& vec, int target) {
+    auto it = std::find(vec.begin(), vec.end(), target);
+    if (it != vec.end()) {
+        return std::distance(vec.begin(), it);
+    } else {
+        return -1;
+    }
+}
